@@ -2,3 +2,12 @@ fernetKey: Z3RZVjVka0FRbmlOSGxiNTZqOW1pNm9FY2tZenFTZ2Q=
 webserverSecretKey: Z3RZVjVka0FRbmlOSGxiNTZqOW1pNm9FY2tZenFTZ2Q=
 executor: "KubernetesExecutor"
 
+dags:
+  gitSync:
+    enabled: true
+    repo: https://github.com/AminaKenessova/Kubernetes.git
+    branch: main
+    rev: HEAD
+    depth: 1
+    maxFailures: 0
+    subPath: "dags"
