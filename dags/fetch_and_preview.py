@@ -3,6 +3,7 @@ from airflow.operators.python import PythonOperator
 import requests 
 import pandas as pd
 from datetime import datetime, timedelta
+import json
 
 def get_data(**kwargs):
     url = 'https://raw.githubusercontent.com/airscholar/ApacheFlink-SalesAnalytics/main/output/new-output.csv'
@@ -21,7 +22,7 @@ def get_data(**kwargs):
 
 def preview_data(**kwargs): 
     output_data = kwargs['ti'].xcom_pull(key='data', task_ids='get_data')
-    print(output_data):
+    print(output_data)
     if output_data:
         output_data=json.loads(output_data)
     else:
