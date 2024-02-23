@@ -34,7 +34,7 @@ def preview_data(**kwargs):
     #compute total sales
     df['Total'] = df['Price']*df['Quantity']
 
-    df = df.groupby('Category', as_index=False).add({'Quantity': 'sum', 'Total': 'sum'})
+    df = df.groupby('Category', as_index=False).agg({'Quantity': 'sum', 'Total': 'sum'})
 
     #sort by total sales
     df = df.sort_values(by='Total', ascending=False)
@@ -43,7 +43,7 @@ def preview_data(**kwargs):
 
 default_args = {
     'owner': 'data',
-    'start_date': datetime(2024, 2, 22),
+    'start_date': datetime(2024, 2, 23),
     'catchup': False
 }
 
